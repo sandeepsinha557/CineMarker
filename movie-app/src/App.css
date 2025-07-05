@@ -1,0 +1,146 @@
+/* ====== Base styles ====== */
+#root {
+  min-height: 100vh;
+  background-color: #121212;
+}
+
+body {
+	background-color: #141414;
+	color: #ffffff;
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', sans-serif;
+	overflow-x: hidden;
+}
+
+.movie-app {
+	padding: 2rem 1rem;
+}
+
+/* ====== Headings ====== */
+.movie-app h1, .movie-app h2 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
+
+/* ====== Scrollable Movie Row ====== */
+.movie-app > .row {
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	gap: 1rem;
+	padding-bottom: 1rem;
+	scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+.movie-app > .row::-webkit-scrollbar {
+	height: 8px;
+}
+.movie-app > .row::-webkit-scrollbar-track {
+	background: #1f1f1f;
+}
+.movie-app > .row::-webkit-scrollbar-thumb {
+	background: #555;
+	border-radius: 4px;
+}
+
+/* ====== Movie Card Styling ====== */
+.image-container {
+	min-width: 180px;
+	max-width: 220px;
+	flex: 0 0 auto;
+	position: relative;
+	transition: transform 0.2s ease-in-out;
+}
+
+.image-container img {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ====== Hover effect ====== */
+.image-container:hover {
+	cursor: pointer;
+	transform: scale(1.08);
+	z-index: 1;
+}
+
+/* ====== Overlay (e.g., Add to Favorites text) ====== */
+.overlay {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	color: #ffffff;
+	text-align: center;
+	padding: 12px;
+	font-size: 1rem;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+.image-container:hover .overlay {
+	opacity: 1;
+}
+
+.movie-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+}
+
+.modal-content {
+	background: #1e1e1e;
+	padding: 2rem;
+	border-radius: 10px;
+	color: white;
+	width: 90%;
+	max-width: 400px;
+	text-align: center;
+	position: relative;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.modal-content img {
+	width: 100%;
+	height: auto;
+	margin-top: 1rem;
+	border-radius: 8px;
+}
+
+.close-button {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	color: #ccc;
+}
+
+.trailer-button {
+	margin-top: 1rem;
+	background-color: #e50914;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	font-size: 1rem;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+.trailer-button:hover {
+	background-color: #ff1f1f;
+}
